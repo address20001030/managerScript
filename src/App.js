@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import {Layout} from './layout/Layout';
 import Logout from './pages/Logout/Logout'
 import MnUser from './pages/MnUser';
-import Register from './pages/Register';
 import PageAdd from './pages/PageAdd';
 
 const App = ()=>{
@@ -14,7 +13,6 @@ const App = ()=>{
         <Router>
             <Switch>
                 <Route path='/' exact component={Login} />
-                <Route path='/register' exact component={Register} />
                 <Layout>
                      <Route path='/home' exact component={Home}/>
                      <Route path='/add-script' exact component={PageAdd}/>
