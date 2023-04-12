@@ -49,11 +49,6 @@ function Login() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="row mb-3">
-                                <div className="col-12 text-center">
-                                    <a href='/register'>Register a new account</a>
-                                </div>
-                            </div>
                             <div className="row">
                                 <div className="col-12">
                                     <button  className="btn btn-primary btn-block" onClick={(e)=>loginAction(e)}>Sign In</button>

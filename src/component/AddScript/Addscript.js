@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
+import { useHistory} from 'react-router-dom';
 import { apiAccount } from '../../api/account';
+import {encode as base64_encode} from 'base-64';
 
 function Table() {
 
@@ -9,9 +11,13 @@ function Table() {
     const [pyEncode,setPyEncode] = useState("");
     const [pyCall,setPyCall] = useState("");
 
+    const history = useHistory();
+
     const addScript = async()=>{
-        const rest = await apiAccount.addScript(username,host,batCode,pyEncode,pyCall);
+        let encoded = base64_encode(pyEncode);
+        const rest = await apiAccount.addScript(username,host,batCode,encoded,pyCall);
         alert("Thêm script thành công!");
+        history.push("/users");
     };
 
     return (

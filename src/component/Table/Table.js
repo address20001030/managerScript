@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react'
 import { apiAccount } from '../../api/account';
 import './Table.css'
 import { baseUrl } from '../../api/baseUrl';
+import {encode as base64_encode} from 'base-64';
 
 function Table() {
     const [data,setData] = useState(null);
@@ -31,7 +32,8 @@ function Table() {
     }
 
     const addScript = async()=>{
-        const rest = await apiAccount.updateScript(username,host,batCode,pyEncode,pyCall);
+        let encoded = base64_encode(pyEncode);
+        const rest = await apiAccount.updateScript(username,host,batCode,encoded,pyCall);
         getAllData();
         alert("Update script thành công!");
     };
